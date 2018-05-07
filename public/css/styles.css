@@ -1,0 +1,33 @@
+
+body{
+    font-size:14px;
+    min-height: 100%;
+    height: 100%;
+    background-color: #DFDCE3;
+}
+
+.header{
+    background-color: #4ABDAC;
+}
+
+.page-header{
+    background-color: #DFDCE3;
+    margin: auto !important;
+}
+
+.navbar-brand{
+    color: #4ABDAC !important;
+}
+
+.nav-link{
+    color: #4ABDAC !important;
+}
+
+.navbar-laravel{
+    webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.abstract{
+    font-weight: 600;
+}

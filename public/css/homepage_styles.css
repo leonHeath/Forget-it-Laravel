@@ -1,0 +1,45 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0 0 0 0;
+    min-height: 100%;
+    height: 100%;
+    background-color: #efedf1;
+}
+
+aside {
+    height: 100%;
+    width:20%;
+    background-color: #efedf1;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+}
+
+.note-space {
+    flex: 1;
+    overflow: auto;
+}
+
+#add-task{
+    background-image: url('/Img/add-button-v3.png');
+    background-size: 180px;
+    height: 180px;
+    width: 180px;
+    border:none;
+    border-radius: 50%;
+    outline:0;
+}
+
+#navbarSupportedContent{
+    display: flex !important;
+}
+
+.user-projects{
+    list-style: none;
+    padding: 0;
+}
