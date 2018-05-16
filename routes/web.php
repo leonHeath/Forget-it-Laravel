@@ -14,13 +14,11 @@
 Route::get('/', function () {
     return view('layouts/welcome');
 });
-/*
-Route::get('/{id}', function () {
-    return view('homepage');
-});
-*/
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/projects', 'HomeController@index')->name('projects');
 
-Route::post('/homes/tasks', 'TasksController@store');
+Route::get('/tasks', 'TasksController@index');
+
+Route::post('/tasks', 'TasksController@store');

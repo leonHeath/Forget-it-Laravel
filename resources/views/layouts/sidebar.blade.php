@@ -1,15 +1,12 @@
 <aside>
     <h3 class = "user-info">
-        Projects
+        @csrf
+        <a href="{{ url('/projects') }}">Projects</a>
     </h3>
     <ul class = "projects user-projects">
 
-        <li type="text" class = "selectable">
-            To-Do
-        </li>
-
         <li type="text" class="selectable" id=new-project>
-            New Project
+            Default Project
         </li>
     </ul>
 </aside>
