@@ -12,7 +12,7 @@
                         <form method="GET" action="{{ route('login') }}">
                             @csrf
                             <div class="row mb-0">
-                                <a href="{{ url('/tasks') }}" class="btn btn-link">Default Project</a>
+                                <a href="{{ url('/tasks') }}" class="btn btn-link">My Tasks</a>
                             </div>
                         </form>
                     </div>
