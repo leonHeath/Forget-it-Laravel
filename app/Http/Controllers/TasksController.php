@@ -9,13 +9,19 @@ use App\Task;
 class TasksController extends Controller
 {
 
+    /*
+     * Get only tasks belonging to the the user
+     */
     public function index(){
         $tasks = Task::where('user_id', Auth::id())->get();
         return view('layouts/tasks', compact('tasks'));
     }
 
+    /*
+     * Create and store a new task
+     * Uses default values that may be edited by the user later
+     */
     public function store(){
-        //Create and store a new task
         Task::create([
             'title' => "Default Task",
             'description' => "Write task description here",

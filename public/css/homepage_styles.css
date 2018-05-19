@@ -20,6 +20,10 @@ aside {
     display: flex;
 }
 
+.task-header{
+    margin: 1rem;
+}
+
 .task-space {
     display: flex;
     flex-wrap: wrap;
@@ -42,6 +46,14 @@ aside {
     border:none;
     border-radius: 50%;
     outline:0;
+}
+
+#edit-task{
+    background-image: url('/Img/edit-task.png');
+    background-size: 3rem;
+    height: 3rem;
+    width: 3rem;
+    border: none;
 }
 
 #navbarSupportedContent{
@@ -69,6 +81,7 @@ aside {
 
 .flex-center-parent{
     display: flex;
+    justify-content: space-around;
 }
 
 .flex-center-child{
