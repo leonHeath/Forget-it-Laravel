@@ -3,7 +3,7 @@
         <div>
             <h4>{{ $task->title }}</h4>
         </div>
-        <button id="edit-task"></button>
+        <button class="edit-task" data-toggle="modal" data-target="#edit-task-modal"></button>
     </div>
     <div class="task-content">
         <p class="note-description">{{ $task->description }}</p>
