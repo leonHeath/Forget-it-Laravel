@@ -20,10 +20,6 @@ aside {
     display: flex;
 }
 
-.task-header{
-    margin: 1rem;
-}
-
 .task-space {
     display: flex;
     flex-wrap: wrap;
@@ -86,4 +82,8 @@ aside {
 
 .flex-center-child{
     margin: auto;
+}
+
+.stretch{
+    width: 100%;
 }

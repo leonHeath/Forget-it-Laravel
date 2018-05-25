@@ -22,3 +22,5 @@ const app = new Vue({
     el: '#app'
 });
 */
+
+//On modal create load modal with task data

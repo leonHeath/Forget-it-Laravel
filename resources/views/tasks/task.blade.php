@@ -1,5 +1,5 @@
 <div class="task">
-    <div class="flex-center-parent task-header">
+    <div class="flex-center-parent task-header header">
         <div>
             <h4>{{ $task->title }}</h4>
             <input type="hidden" id="task_id" name="task_id" value={{ $task->id }}>
