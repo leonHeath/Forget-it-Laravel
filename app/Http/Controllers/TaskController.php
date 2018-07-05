@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Task;
 
-class TasksController extends Controller
+class TaskController extends Controller
 {
 
     /*
@@ -30,15 +30,23 @@ class TasksController extends Controller
         return redirect('tasks');
     }
 
-    public function edit($id){
-        //Create modal for editing tasks
+    /*
+     * Show task from id
+     */
+    public function show(Task $task){
+        return $task->toJson();
     }
 
-    public function update(Request $request, $id){
+    public function update($id, Request $request){
         //Called on submitting of update
+        $task = Task::find($id);
+        $task->title = $request->task_title;
+        $task->description = $request->task_desc;
+        $task->save();
+        return redirect('tasks');
     }
 
-    public function destroy($id){
+    public function destroy(Task $task){
         //Delete tasks
     }
 

@@ -13685,27 +13685,110 @@ module.exports = __webpack_require__(36);
 /***/ (function(module, exports, __webpack_require__) {
 
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 __webpack_require__(12);
 
-/*
-window.Vue = require('vue');
-*/
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-/*
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+//let $currentTask;
+var task_id = void 0;
 
-const app = new Vue({
-    el: '#app'
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+    }
+});
+
+//Fills modal with fields from database
+function fillFields(task) {
+    $('#edit-task-form').attr('action', '/tasks/' + task_id);
+    $('#modal-task-title').val(task.title);
+    $('#modal-task-desc').val(task.description);
+}
+
+//Set task ID according to edit button clicked
+function setTaskId(current) {
+    task_id = current.siblings('.task-id').val();
+}
+
+//Send ajax call to fill form data
+function fillTaskInfo() {
+    $.ajax({
+        type: 'GET',
+        url: '/tasks/' + task_id
+    }).done(function (data) {
+        var task = JSON.parse(data);
+        console.log(task);
+        fillFields(task);
+    });
+}
+
+/*
+ * Edit Task
+ *
+ * On clicking edit-task:
+ * Modal is shown with values shown
+ */
+$('.edit-task').on("click", function (e) {
+    e.preventDefault();
+    setTaskId($(this));
+
+    $('#edit-task-modal').modal('show');
+
+    fillTaskInfo();
+});
+
+//Get values from form and return as JSON string
+
+function getFieldValues() {
+    var taskValues = { title: $('#modal-task-title').val(),
+        description: $('#modal-task-desc').val() };
+    console.log(JSON.stringify(taskValues));
+    return JSON.stringify(taskValues);
+}
+/*
+function getNewTaskValues() {
+    return new FormData(document.getElementById('edit-task-form'));
+}
+*/
+/*
+ * Save Task
+ *
+ * On clicking save-task
+ * Task fields are saved to the database
+ * Modal hides
+ */
+
+/*
+$('#save-task').on("click", function(e){
+    e.preventDefault();
+    console.log('Clicked save');
+    console.log(task_id);
+    $.ajax({
+        type: 'PATCH',
+        url: '/tasks/' + task_id,
+        data: getFieldValues()
+    })
+    .done(function() {
+        $('#edit-task-modal').modal('hide');
+    });
+
+});
+*/
+
+/*
+$('#save-task').on("click", function(e){
+    e.preventDefault();
+    console.log('Clicked save');
+    console.log(task_id);
+    $.ajax({
+        type: 'PATCH',
+        url: '/tasks/' + task_id,
+        data: getNewTaskValues(),
+        processData: false,
+        contentType: false,
+    })
+    .done(function() {
+        $('#edit-task-modal').modal('hide');
+    });
+
 });
 */
 

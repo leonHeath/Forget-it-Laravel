@@ -1,10 +1,13 @@
 <div class="task">
     <div class="flex-center-parent task-header header">
-        <div>
+        <div class="task-title">
             <h4>{{ $task->title }}</h4>
-            <input type="hidden" id="task_id" name="task_id" value={{ $task->id }}>
         </div>
-        <button class="edit-task" data-toggle="modal" data-target="#edit-task-modal"></button>
+        <form>
+            <button class="edit-task"></button>
+            <input type="hidden" class="task-id" name="task_id" value={{ $task->id }}>
+        </form>
+
     </div>
     <div class="task-content">
         <p class="note-description">{{ $task->description }}</p>

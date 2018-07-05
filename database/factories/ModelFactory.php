@@ -1,7 +1,6 @@
 <?php
 
 use Faker\Generator as Faker;
-
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -21,3 +20,15 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Task::class, function (Faker $faker) {
+    return [
+        'id' => $faker->unique(),
+        'user_id' => function(){
+            return factory(App\User::class)->create()->id;
+        },
+        'title' => $faker->sentence,
+        'description' => $faker->paragraph
+    ];
+});
+
